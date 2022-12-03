@@ -41,6 +41,13 @@ SELECT Title, Premiere, IMDB_Score, Language
         ORDER BY IMDB_Score DESC
         LIMIT 5;
 
+#Average score of documentaries
+
+SELECT Genre, AVG(IMDB_score) AS 'Average score'
+	FROM netflix_originals
+    GROUP BY Genre
+    HAVING Genre='Documentary';
+
 #Create a table with number of movies released in each year and the average score on IMDB for the movies on respected years
 SELECT
  Year(Premiere) AS Year,
